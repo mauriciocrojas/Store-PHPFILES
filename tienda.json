@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "nombre": "chomba",
+        "tipo": "camiseta",
+        "color": "negra",
+        "talla": "s",
+        "precio": 10,
+        "stock": 14
+    },
+    {
+        "id": 2,
+        "nombre": "jeanAzul",
+        "tipo": "pantalon",
+        "color": "negro",
+        "talla": "s",
+        "precio": 300,
+        "stock": 19
+    },
+    {
+        "id": 3,
+        "nombre": "jeanAzula",
+        "tipo": "pantalon",
+        "color": "negro",
+        "talla": "s",
+        "precio": 300,
+        "stock": 10
+    }
+]

@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "email": "juanperez@gmail.com",
+        "nombre": "chomba",
+        "tipo": "camiseta",
+        "numeroVenta": 4792,
+        "cantidadSolicitada": "1",
+        "fecha": "20-05-2024 19:59:50",
+        "talla": "s"
+    },
+    {
+        "id": 2,
+        "email": "juanperez@gmail.com",
+        "nombre": "chomba",
+        "tipo": "camiseta",
+        "numeroVenta": 2752,
+        "cantidadSolicitada": "1",
+        "fecha": "20-05-2024 19:59:57",
+        "talla": "s"
+    },
+    {
+        "id": 3,
+        "email": "juanperez@gmail.com",
+        "nombre": "chomba",
+        "tipo": "camiseta",
+        "numeroVenta": 2316,
+        "cantidadSolicitada": "1",
+        "fecha": "20-05-2024 20:00:00",
+        "talla": "s"
+    },
+    {
+        "id": 4,
+        "email": "juanperez@gmail.com",
+        "nombre": "chomba",
+        "tipo": "camiseta",
+        "numeroVenta": 4527,
+        "cantidadSolicitada": "1",
+        "fecha": "20-05-2024 20:00:01",
+        "talla": "s"
+    },
+    {
+        "id": 5,
+        "email": "juanperez@gmail.com",
+        "nombre": "chomba",
+        "tipo": "camiseta",
+        "numeroVenta": 3526,
+        "cantidadSolicitada": "1",
+        "fecha": "20-05-2024 20:07:25",
+        "talla": "s"
+    },
+    {
+        "id": 6,
+        "email": "juanperez@gmail.com",
+        "nombre": "chomba",
+        "tipo": "camiseta",
+        "numeroVenta": 2605,
+        "cantidadSolicitada": "1",
+        "fecha": "20-05-2024 20:07:26",
+        "talla": "s"
+    },
+    {
+        "id": 7,
+        "email": "juanperez@gmail.com",
+        "nombre": "jeanAzul",
+        "tipo": "pantalon",
+        "numeroVenta": 2045,
+        "cantidadSolicitada": "1",
+        "fecha": "20-05-2024 23:03:03",
+        "talla": "s"
+    }
+]
