@@ -44,5 +44,3 @@ switch ($metodo) {
         break;
 }
 
-// Debe recibir el número de pedido, el email del usuario, el nombre, tipo, talla y cantidad. Si existe se modifica, de
-// lo contrario, informar que no existe ese número de pedido.
