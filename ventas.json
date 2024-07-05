@@ -68,5 +68,25 @@
         "cantidadSolicitada": "1",
         "fecha": "20-05-2024 23:03:03",
         "talla": "s"
+    },
+    {
+        "id": 8,
+        "email": "comprador@gmail.com",
+        "nombre": "momon",
+        "tipo": "pantalon",
+        "numeroVenta": 3057,
+        "cantidadSolicitada": "1",
+        "fecha": "04-07-2024 21:59:07",
+        "talla": "k"
+    },
+    {
+        "id": 9,
+        "email": "comprador@gmail.com",
+        "nombre": "momo",
+        "tipo": "pantalon",
+        "numeroVenta": 2546,
+        "cantidadSolicitada": "1",
+        "fecha": "04-07-2024 21:59:08",
+        "talla": "w"
     }
 ]

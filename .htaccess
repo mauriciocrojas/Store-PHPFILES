@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteCond %{REQUEST_METHOD} ^(PUT|DELETE|POST|GET)
+RewriteRule ^(.*)$ $1 [L,QSA]
