@@ -3,9 +3,8 @@
 //Mauricio Rojas
 
 $metodo = $_SERVER["REQUEST_METHOD"];
-echo "Método HTTP: $metodo\n"; // Agrega este echo para verificar el método recibido
+echo "Método HTTP: $metodo\n";
 
-echo "Entré al index.\n";
 switch ($metodo) {
     case "POST":
         switch ($_GET["accion"]) {
@@ -31,16 +30,14 @@ switch ($metodo) {
             echo "Entré al IF del bloque PUT.\n";
             include "modificarPedido.php";
             parse_str(file_get_contents("php://input"), $putData);
-            $lista = Modificar::ModificarPedido($putData['email'], $putData['nombre'], $putData['tipo'], $putData['talla'], $putData['cantidad'], $putData['nuevatalla']);
+            $lista = Modificar::ModificarPedido($putData['email'], $putData['nombre'], $putData['tipo'], $putData['talla'], $putData['cantidad'], $putData['nuevatalla'], $putData['numeropedido']);
 
             if (count($lista) > 0) {
                 echo Tienda::GuardarJson($lista, "ventas.json") ? "Se guardó el listado de ventas\n" : "Error al guardar listado de ventas\n";
             }
         }
-
         break;
     default:
         echo "El método pasado no es válido\n";
         break;
 }
-
