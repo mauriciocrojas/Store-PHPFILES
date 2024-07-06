@@ -7,7 +7,7 @@
         "numeroVenta": 4792,
         "cantidadSolicitada": "1",
         "fecha": "20-05-2024 19:59:50",
-        "talla": "W",
+        "talla": "J",
         "precio": "5",
         "eliminado": "Y"
     },
@@ -33,7 +33,7 @@
         "fecha": "20-05-2024 20:00:00",
         "talla": "s",
         "precio": "5",
-        "eliminado": "N"
+        "eliminado": "Y"
     },
     {
         "id": 4,

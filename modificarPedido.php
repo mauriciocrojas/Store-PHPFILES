@@ -3,7 +3,7 @@
 require_once "tienda.php";
 require_once "venta.php";
 
-class Modificar
+class AlterarVenta
 {
 
 

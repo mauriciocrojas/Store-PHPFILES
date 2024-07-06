@@ -29,24 +29,10 @@ switch ($metodo) {
         include "consultarVentas.php";
         break;
     case "PUT":
-        if ($_GET["accion"] == 'modificar') {
-            include "modificarPedido.php";
-            parse_str(file_get_contents("php://input"), $putData);
-            $lista = Modificar::ModificarPedido($putData['email'], $putData['nombre'], $putData['tipo'], $putData['talla'], $putData['cantidad'], $putData['nuevatalla'], $putData['numeropedido']);
-
-            if (!empty($lista)) {
-                echo Tienda::GuardarJson($lista, "ventas.json") ? "Se guardó el listado de ventas\n" : "Error al guardar listado de ventas\n";
-            }
-        }
+        include "modificarPedidoAccion.php";
         break;
     case "DELETE":
-            include "modificarPedido.php";
-            parse_str(file_get_contents("php://input"), $putData);
-            $lista = Modificar::EliminarPedido($putData['numeropedido']);
-
-            if (!empty($lista)) {
-                echo Tienda::GuardarJson($lista, "ventas.json") ? "Se guardó el listado de ventas\n" : "Error al guardar listado de ventas\n";
-            }
+        include "modificarPedidoAccion.php";
         break;
     default:
         echo "El método pasado no es válido\n";
