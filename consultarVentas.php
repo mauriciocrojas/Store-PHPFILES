@@ -47,4 +47,11 @@ switch ($_GET["accion"]) {
             echo "No se pasó parámetro de fecha\n";
             echo Venta::IngresosDeVentasPorDia() . "\n";
         }
+        break;
+    case "productoMasVendido":
+            Venta::ProductoMasVendido();
+        break;
+    default:
+        echo "Accion inválida";
+        break;
 }

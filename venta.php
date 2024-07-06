@@ -275,4 +275,37 @@ class Venta
             }
         }
     }
+
+
+    public static function ProductoMasVendido()
+    {
+        $ventas = Tienda::ObtenerContenidoDelArchivo("ventas.json");
+    
+        $cantidades = [];
+    
+        foreach ($ventas as $venta) {
+            $nombre = $venta["nombre"];
+            if (!isset($cantidades[$nombre])) {
+                $cantidades[$nombre] = 0;
+            }
+            $cantidades[$nombre] += intval($venta["cantidadSolicitada"]);
+        }
+    
+        $productoMasVendido = '';
+        $cantidadMaxima = 0;
+    
+        foreach ($cantidades as $nombre => $cantidad) {
+            if ($cantidad > $cantidadMaxima) {
+                $productoMasVendido = $nombre;
+                $cantidadMaxima = $cantidad;
+            }
+        }
+    
+        if ($productoMasVendido != '') {
+            echo "El producto más vendido es: $productoMasVendido con una cantidad vendida de $cantidadMaxima unidades.";
+        } else {
+            echo "No se encontraron ventas";
+        }
+    }
+    
 }
