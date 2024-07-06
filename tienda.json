@@ -82,5 +82,15 @@
         "tallaCamisa": "s",
         "tallaPantalon": "s",
         "precioTotal": 310
+    },
+    {
+        "id": 10,
+        "nombre": "chomba y mom",
+        "tipo": "Conjunto",
+        "nombreCamisa": "chomba",
+        "nombrePantalon": "mom",
+        "tallaCamisa": "s",
+        "tallaPantalon": "m",
+        "precioTotal": 22
     }
 ]

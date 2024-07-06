@@ -136,10 +136,6 @@ class Venta
             $nombreCarpeta = "ImagenesDeVentas2024/";
             $destino =  $nombreCarpeta . $nombre . $tipo . $talla . explode('@', $email)[0] . date("d-m-Y") . ".jpg";
 
-
-
-            //Si la carpeta no está creada, la crea
-            //Si ya existe, saltea el if
             if (!is_dir($nombreCarpeta)) {
                 mkdir($nombreCarpeta, 0777);
             }
