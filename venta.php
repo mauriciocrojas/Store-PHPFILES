@@ -17,6 +17,7 @@ class Venta
     public $fecha;
     public $talla;
     public $precio;
+    public $eliminado;
 
     public function SetEmail($email)
     {
@@ -57,6 +58,13 @@ class Venta
         }
     }
 
+    public function SetEliminado($eliminado)
+    {
+        if (isset($eliminado)) {
+            $this->eliminado = $eliminado;
+        }
+    }
+
     public function SetPrecio($precio)
     {
         if (isset($precio) && is_numeric($precio)) {
@@ -85,6 +93,7 @@ class Venta
         $venta->SetCantidadSolicitada($cantidadSolicitada);
         $venta->SetId(count($listaVentas) + 1);
         $venta->SetNumeroVenta(rand(1000, 5000));
+        $venta->SetEliminado('N');
         $venta->fecha = date("d-m-Y H:i:s");
 
         array_push($listaVentas, $venta);
@@ -107,7 +116,7 @@ class Venta
                 $bool = true;
                 break;
             } else if ($prenda["nombre"] == $nombre && $prenda["tipo"] == $tipo && $prenda["talla"] == $talla && $prenda["stock"] < $cantidadSolicitada) {
-                $cadena = "No hay stock de la prenda solicitado\n";
+                $cadena = "No hay stock de la prenda solicitada\n";
                 $bool = false;
                 break;
             } else {
@@ -190,9 +199,6 @@ class Venta
             return false;
         }
     }
-
-
-
 
 
     public static function PrendasVendidasPorTipo($tipo = "camiseta")
@@ -280,9 +286,9 @@ class Venta
     public static function ProductoMasVendido()
     {
         $ventas = Tienda::ObtenerContenidoDelArchivo("ventas.json");
-    
+
         $cantidades = [];
-    
+
         foreach ($ventas as $venta) {
             $nombre = $venta["nombre"];
             if (!isset($cantidades[$nombre])) {
@@ -290,22 +296,21 @@ class Venta
             }
             $cantidades[$nombre] += intval($venta["cantidadSolicitada"]);
         }
-    
+
         $productoMasVendido = '';
         $cantidadMaxima = 0;
-    
+
         foreach ($cantidades as $nombre => $cantidad) {
             if ($cantidad > $cantidadMaxima) {
                 $productoMasVendido = $nombre;
                 $cantidadMaxima = $cantidad;
             }
         }
-    
+
         if ($productoMasVendido != '') {
             echo "El producto más vendido es: $productoMasVendido con una cantidad vendida de $cantidadMaxima unidades.";
         } else {
             echo "No se encontraron ventas";
         }
     }
-    
 }

@@ -24,7 +24,7 @@ class Modificar
 
                     $listaVentas[$posicion]['talla'] = $nuevatalla;
 
-                    echo "Se encontró una coincidencia\n";
+                    echo "La talla del pedido $numeropedido fue modificada\n";
                     $coincidencia = true;
                     return $listaVentas;
                 } else {
@@ -40,4 +40,38 @@ class Modificar
         }
         return [];
     }
+
+        // Si existe la venta, se hace un softdelete, de lo contrario, informar que no existe ese número de pedido.
+        public static function EliminarPedido($numeropedido)
+        {
+            $coincidencia = false;
+            $listaVentas = Tienda::ObtenerContenidoDelArchivo("ventas.json");
+    
+            if (isset($numeropedido)) {
+    
+                foreach ($listaVentas as $venta) {
+    
+                    if ($venta["numeroVenta"] == $numeropedido) {
+    
+                        $posicion = array_search($venta, $listaVentas);
+    
+                        $listaVentas[$posicion]['eliminado'] = 'Y';
+    
+                        echo "Se eliminó el pedido $numeropedido\n";
+                        $coincidencia = true;
+                        return $listaVentas;
+                    } else {
+                        $coincidencia = false;
+                    }
+                }
+            } else {
+                echo "No se recibió el número de pedido.\n";
+                $coincidencia = true;
+            }
+    
+            if (!$coincidencia) {
+                echo "No se encontró una coincidencia con el numero de pedido: ". $numeropedido ."\n";
+            }
+            return [];
+        }
 }

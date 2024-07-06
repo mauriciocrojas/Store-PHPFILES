@@ -33,7 +33,7 @@
         "color": "negro",
         "talla": "m",
         "precio": 12,
-        "stock": 35
+        "stock": 29
     },
     {
         "id": 5,
@@ -42,7 +42,7 @@
         "color": "negro",
         "talla": "m",
         "precio": 12,
-        "stock": 53
+        "stock": 48
     },
     {
         "id": 6,
@@ -65,6 +65,16 @@
     },
     {
         "id": 8,
+        "nombre": "chomba y jeanAzul",
+        "tipo": "Conjunto",
+        "nombreCamisa": "chomba",
+        "nombrePantalon": "jeanAzul",
+        "tallaCamisa": "s",
+        "tallaPantalon": "s",
+        "precioTotal": 310
+    },
+    {
+        "id": 9,
         "nombre": "chomba y jeanAzul",
         "tipo": "Conjunto",
         "nombreCamisa": "chomba",

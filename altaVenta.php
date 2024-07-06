@@ -20,8 +20,7 @@ if (isset($_POST["nombre"]) && isset($_POST["tipo"]) && isset($_POST["cantidad"]
         echo Tienda::GuardarJson($usuario, "ventas.json") ? "Se guardó el listado de ventas\n" : "Error al guardar listado de ventas\n";
 
         $ubicacionTemp = $_FILES["file"]["tmp_name"];
-        echo Venta::GuardarImagenCargada($ubicacionTemp, $nombre, $tipo, $talla,$email) ? "Se guardó la imagen enviada\n" : "No se pudo guardar la imagen enviada\n";
-        
+        echo Venta::GuardarImagenCargada($ubicacionTemp, $nombre, $tipo, $talla, $email) ? "Se guardó la imagen enviada\n" : "No se pudo guardar la imagen enviada\n";
     } else {
         echo "No se realizó la venta\n";
     }

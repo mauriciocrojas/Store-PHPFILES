@@ -7,8 +7,9 @@
         "numeroVenta": 4792,
         "cantidadSolicitada": "1",
         "fecha": "20-05-2024 19:59:50",
-        "talla": "s",
-        "precio": "5"
+        "talla": "W",
+        "precio": "5",
+        "eliminado": "Y"
     },
     {
         "id": 2,
@@ -19,7 +20,8 @@
         "cantidadSolicitada": "1",
         "fecha": "20-05-2024 19:59:57",
         "talla": "s",
-        "precio": "5"
+        "precio": "5",
+        "eliminado": "Y"
     },
     {
         "id": 3,
@@ -30,7 +32,8 @@
         "cantidadSolicitada": "1",
         "fecha": "20-05-2024 20:00:00",
         "talla": "s",
-        "precio": "5"
+        "precio": "5",
+        "eliminado": "N"
     },
     {
         "id": 4,
@@ -41,7 +44,8 @@
         "cantidadSolicitada": "1",
         "fecha": "20-05-2024 20:00:01",
         "talla": "s",
-        "precio": "5"
+        "precio": "5",
+        "eliminado": "N"
     },
     {
         "id": 5,
@@ -52,7 +56,8 @@
         "cantidadSolicitada": "1",
         "fecha": "20-05-2024 20:07:25",
         "talla": "s",
-        "precio": "5"
+        "precio": "5",
+        "eliminado": "N"
     },
     {
         "id": 6,
@@ -63,7 +68,8 @@
         "cantidadSolicitada": "1",
         "fecha": "20-05-2024 20:07:26",
         "talla": "s",
-        "precio": "5"
+        "precio": "5",
+        "eliminado": "N"
     },
     {
         "id": 7,
@@ -74,7 +80,8 @@
         "cantidadSolicitada": "1",
         "fecha": "20-05-2024 23:03:03",
         "talla": "s",
-        "precio": "5"
+        "precio": "5",
+        "eliminado": "N"
     },
     {
         "id": 8,
@@ -85,7 +92,8 @@
         "cantidadSolicitada": "1",
         "fecha": "04-07-2024 21:59:07",
         "talla": "k",
-        "precio": "10"
+        "precio": "10",
+        "eliminado": "N"
     },
     {
         "id": 9,
@@ -96,7 +104,8 @@
         "cantidadSolicitada": "1",
         "fecha": "04-07-2024 21:59:08",
         "talla": "P",
-        "precio": "20"
+        "precio": "20",
+        "eliminado": "N"
     },
     {
         "id": 10,
@@ -107,6 +116,127 @@
         "cantidadSolicitada": "15",
         "fecha": "05-07-2024 21:39:12",
         "talla": "m",
-        "precio": "20"
+        "precio": "20",
+        "eliminado": "N"
+    },
+    {
+        "id": 11,
+        "email": "comprador@gmail.com",
+        "nombre": "mom",
+        "tipo": "pantalon",
+        "numeroVenta": 2974,
+        "cantidadSolicitada": "1",
+        "fecha": "06-07-2024 01:53:23",
+        "talla": "m",
+        "precio": "20",
+        "eliminado": "N"
+    },
+    {
+        "id": 12,
+        "email": "comprador@gmail.com",
+        "nombre": "mom",
+        "tipo": "pantalon",
+        "numeroVenta": 4133,
+        "cantidadSolicitada": "1",
+        "fecha": "06-07-2024 01:53:54",
+        "talla": "m",
+        "precio": "20",
+        "eliminado": "N"
+    },
+    {
+        "id": 13,
+        "email": "comprador@gmail.com",
+        "nombre": "mom",
+        "tipo": "pantalon",
+        "numeroVenta": 4212,
+        "cantidadSolicitada": "1",
+        "fecha": "06-07-2024 01:56:23",
+        "talla": "m",
+        "precio": "20",
+        "eliminado": "N"
+    },
+    {
+        "id": 14,
+        "email": "comprador@gmail.com",
+        "nombre": "mom",
+        "tipo": "pantalon",
+        "numeroVenta": 2436,
+        "cantidadSolicitada": "1",
+        "fecha": "06-07-2024 01:56:24",
+        "talla": "m",
+        "precio": "20",
+        "eliminado": "N"
+    },
+    {
+        "id": 15,
+        "email": "comprador@gmail.com",
+        "nombre": "mom",
+        "tipo": "pantalon",
+        "numeroVenta": 1540,
+        "cantidadSolicitada": "1",
+        "fecha": "06-07-2024 02:02:13",
+        "talla": "m",
+        "precio": "20",
+        "eliminado": "N"
+    },
+    {
+        "id": 16,
+        "email": "comprador@gmail.com",
+        "nombre": "momo",
+        "tipo": "pantalon",
+        "numeroVenta": 4489,
+        "cantidadSolicitada": "1",
+        "fecha": "06-07-2024 02:03:34",
+        "talla": "m",
+        "precio": "20",
+        "eliminado": "N"
+    },
+    {
+        "id": 17,
+        "email": "comprador@gmail.com",
+        "nombre": "momo",
+        "tipo": "pantalon",
+        "numeroVenta": 4863,
+        "cantidadSolicitada": "1",
+        "fecha": "06-07-2024 02:03:40",
+        "talla": "m",
+        "precio": "20",
+        "eliminado": "N"
+    },
+    {
+        "id": 18,
+        "email": "comprador@gmail.com",
+        "nombre": "momo",
+        "tipo": "pantalon",
+        "numeroVenta": 1410,
+        "cantidadSolicitada": "1",
+        "fecha": "06-07-2024 02:07:40",
+        "talla": "m",
+        "precio": "20",
+        "eliminado": "N"
+    },
+    {
+        "id": 19,
+        "email": "comprador@gmail.com",
+        "nombre": "momo",
+        "tipo": "pantalon",
+        "numeroVenta": 4407,
+        "cantidadSolicitada": "1",
+        "fecha": "06-07-2024 02:08:02",
+        "talla": "m",
+        "precio": "20",
+        "eliminado": "N"
+    },
+    {
+        "id": 20,
+        "email": "comprador@gmail.com",
+        "nombre": "momo",
+        "tipo": "pantalon",
+        "numeroVenta": 4966,
+        "cantidadSolicitada": "1",
+        "fecha": "06-07-2024 02:10:53",
+        "talla": "m",
+        "precio": "20",
+        "eliminado": "N"
     }
 ]

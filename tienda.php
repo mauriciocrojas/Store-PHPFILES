@@ -164,32 +164,15 @@ class Tienda
         return $listaPrendas;
     }
 
-    // public static function GuardarJson($lista, $nombreArchivo = "tienda.json")
-    // {
-    //     $contenido = json_encode($lista, JSON_PRETTY_PRINT);
-    //     if (!empty($contenido)) {
-    //         $data = file_put_contents($nombreArchivo, $contenido);
-    //         if ($data != false) {
-    //             return true;
-    //         } else {
-    //             return false;
-    //         }
-    //     } else {
-    //         echo "El archivo no se pudo guardar\n";
-    //         return false;
-    //     }
-    // }
 
     public static function GuardarJson($lista, $nombreArchivo = "tienda.json")
     {
-        // Preparar y filtrar las prendas válidas
-        $preparadas = array_map(fn ($prenda) => array_filter((array) $prenda), $lista);
+        //Filtro prendas cuyos campos no contienen null
+        $prendasOk = array_map(fn ($prenda) => array_filter((array) $prenda), $lista);
 
-        // Convertir a JSON y guardar en el archivo
-        $jsonContenido = json_encode($preparadas, JSON_PRETTY_PRINT);
+        $data = json_encode($prendasOk, JSON_PRETTY_PRINT);
 
-        // Guardar en el archivo y retornar el resultado
-        return file_put_contents($nombreArchivo, $jsonContenido) ? true : false;
+        return file_put_contents($nombreArchivo, $data) ? true : false;
     }
 
 
