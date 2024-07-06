@@ -253,8 +253,13 @@ class Venta
         } else {
             //Recorro la lista de ventas, y por cada fecha que encuentre, armo los ingresos para ese día y los informo
             foreach ($listaVentas as $venta) {
-                $totalIngresos += //CHAT GPT ACÁ NECESITO TU AYUDA
-                    $hayIngresosFechaEspecifica = false;
+                $fechaVenta = explode(" ", $venta["fecha"])[0];
+
+                if (!isset($ingresosPorFecha[$fechaVenta])) {
+                    $ingresosPorFecha[$fechaVenta] = 0;
+                }
+
+                $ingresosPorFecha[$fechaVenta] += $venta["precio"];
             }
         }
 
@@ -262,10 +267,12 @@ class Venta
         if ($totalIngresos > 0 && $hayIngresosFechaEspecifica) {
             //Muestro los ingresos de una fecha específica
             echo "Los ingresos de esa fecha fueron de: $" . $totalIngresos;
-        } else if ($totalIngresos > 0 && !$hayIngresosFechaEspecifica) {
+        } else if (!empty($ingresosPorFecha) && !$hayIngresosFechaEspecifica) {
             //Muestro los ingresos de todos los días
             echo "Los ingresos por día fueron de:\n";
-            //CHAT GPT ACÁ NECESITO TU AYUDA
+            foreach ($ingresosPorFecha as $fecha => $ingresos) {
+                echo "Fecha: " . $fecha . " - Ingresos: $" . $ingresos . "\n";
+            }
         }
     }
 }
