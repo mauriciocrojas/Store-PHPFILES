@@ -8,7 +8,6 @@ require_once "venta.php";
 
 switch ($_GET["accion"]) {
     case "cantidadVentasPorDia":
-
         if (isset($_GET["fecha"])) {
             echo "Parámetro de fecha utlizado: " . $_GET["fecha"] . "\n";
             echo "Se vendieron en la fecha sumistrada, la siguiente cantidad de prendas: ";
@@ -40,4 +39,12 @@ switch ($_GET["accion"]) {
             echo "Faltan datos\n";
         }
         break;
+    case "ingresosPorDia":
+        if (isset($_GET["fecha"])) {
+            echo "Parámetro de fecha utlizado: " . $_GET["fecha"] . "\n";
+            Venta::IngresosDeVentasPorDia($_GET["fecha"]) . "\n";
+        } else {
+            echo "No se pasó parámetro de fecha\n";
+            echo Venta::IngresosDeVentasPorDia() . "\n";
+        }
 }

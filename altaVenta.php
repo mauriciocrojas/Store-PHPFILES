@@ -6,16 +6,17 @@
 require_once "tienda.php";
 require_once "venta.php";
 
-if (isset($_POST["nombre"]) && isset($_POST["tipo"]) && isset($_POST["cantidad"]) && isset($_POST["email"]) && isset($_POST["talla"]) && isset($_POST["cantidad"])) {
+if (isset($_POST["nombre"]) && isset($_POST["tipo"]) && isset($_POST["cantidad"]) && isset($_POST["email"]) && isset($_POST["talla"]) && isset($_POST["cantidad"]) && isset($_POST["precio"])) {
     $nombre = $_POST["nombre"];
     $tipo = $_POST["tipo"];
     $cantidad = $_POST["cantidad"];
     $email = $_POST["email"];
     $talla = $_POST["talla"];
+    $precio = $_POST["precio"];
 
 
     if (Venta::BuscarPrendaParaUsuario($nombre, $tipo, $talla, $cantidad)) {
-        $usuario = Venta::AltaUsuarioVenta($email, $nombre, $tipo, $cantidad, $talla);
+        $usuario = Venta::AltaUsuarioVenta($email, $nombre, $tipo, $cantidad, $talla, $precio);
         echo Tienda::GuardarJson($usuario, "ventas.json") ? "Se guardó el listado de ventas\n" : "Error al guardar listado de ventas\n";
 
         $ubicacionTemp = $_FILES["file"]["tmp_name"];

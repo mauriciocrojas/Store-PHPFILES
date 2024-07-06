@@ -6,7 +6,7 @@
         "color": "negra",
         "talla": "s",
         "precio": 10,
-        "stock": 14
+        "stock": 54
     },
     {
         "id": 2,
@@ -33,7 +33,7 @@
         "color": "negro",
         "talla": "m",
         "precio": 12,
-        "stock": 50
+        "stock": 35
     },
     {
         "id": 5,
@@ -42,6 +42,6 @@
         "color": "negro",
         "talla": "m",
         "precio": 12,
-        "stock": 23
+        "stock": 53
     }
 ]

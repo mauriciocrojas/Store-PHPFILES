@@ -16,6 +16,7 @@ class Venta
     public $cantidadSolicitada;
     public $fecha;
     public $talla;
+    public $precio;
 
     public function SetEmail($email)
     {
@@ -56,13 +57,20 @@ class Venta
         }
     }
 
+    public function SetPrecio($precio)
+    {
+        if (isset($precio) && is_numeric($precio)) {
+            $this->precio = $precio;
+        }
+    }
+
     public function SetNumeroVenta($numeroVenta)
     {
         if (isset($numeroVenta) && is_numeric($numeroVenta)) {
             $this->numeroVenta = $numeroVenta;
         }
     }
-    public static function AltaUsuarioVenta($email, $nombre, $tipo, $cantidadSolicitada, $talla)
+    public static function AltaUsuarioVenta($email, $nombre, $tipo, $cantidadSolicitada, $talla, $precio)
     {
         $listaVentas = array();
 
@@ -73,6 +81,7 @@ class Venta
         $venta->SetTalla($talla);
         $venta->SetNombre($nombre);
         $venta->SetTipo($tipo);
+        $venta->SetPrecio($precio);
         $venta->SetCantidadSolicitada($cantidadSolicitada);
         $venta->SetId(count($listaVentas) + 1);
         $venta->SetNumeroVenta(rand(1000, 5000));
@@ -222,6 +231,41 @@ class Venta
 
         if (Tienda::MostrarPrendas($listaPrendasEntrePrecios) === false) {
             echo "No existen prendas entre los rangos mencionados\n";
+        }
+    }
+
+    public static function IngresosDeVentasPorDia($fecha = null)
+    {
+        $listaVentas = array();
+        $hayIngresosFechaEspecifica = false;
+
+        $listaVentas = Tienda::ObtenerContenidoDelArchivo("ventas.json");
+        $totalIngresos = 0;
+
+        if (isset($fecha)) {
+            //Recorro la lista de ventas y cada vez que se encuentre la fecha pasada por parámetro, los ingresos de ese día se sumarán
+            foreach ($listaVentas as $venta) {
+                if (explode(" ", $venta["fecha"])[0] == $fecha) {
+                    $totalIngresos += $venta["precio"];
+                    $hayIngresosFechaEspecifica = true;
+                }
+            }
+        } else {
+            //Recorro la lista de ventas, y por cada fecha que encuentre, armo los ingresos para ese día y los informo
+            foreach ($listaVentas as $venta) {
+                $totalIngresos += //CHAT GPT ACÁ NECESITO TU AYUDA
+                    $hayIngresosFechaEspecifica = false;
+            }
+        }
+
+
+        if ($totalIngresos > 0 && $hayIngresosFechaEspecifica) {
+            //Muestro los ingresos de una fecha específica
+            echo "Los ingresos de esa fecha fueron de: $" . $totalIngresos;
+        } else if ($totalIngresos > 0 && !$hayIngresosFechaEspecifica) {
+            //Muestro los ingresos de todos los días
+            echo "Los ingresos por día fueron de:\n";
+            //CHAT GPT ACÁ NECESITO TU AYUDA
         }
     }
 }

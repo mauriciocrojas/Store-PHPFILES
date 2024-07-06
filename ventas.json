@@ -7,7 +7,8 @@
         "numeroVenta": 4792,
         "cantidadSolicitada": "1",
         "fecha": "20-05-2024 19:59:50",
-        "talla": "s"
+        "talla": "s",
+        "precio": "5"
     },
     {
         "id": 2,
@@ -17,7 +18,8 @@
         "numeroVenta": 2752,
         "cantidadSolicitada": "1",
         "fecha": "20-05-2024 19:59:57",
-        "talla": "s"
+        "talla": "s",
+        "precio": "5"
     },
     {
         "id": 3,
@@ -27,7 +29,8 @@
         "numeroVenta": 2316,
         "cantidadSolicitada": "1",
         "fecha": "20-05-2024 20:00:00",
-        "talla": "s"
+        "talla": "s",
+        "precio": "5"
     },
     {
         "id": 4,
@@ -37,7 +40,8 @@
         "numeroVenta": 4527,
         "cantidadSolicitada": "1",
         "fecha": "20-05-2024 20:00:01",
-        "talla": "s"
+        "talla": "s",
+        "precio": "5"
     },
     {
         "id": 5,
@@ -47,7 +51,8 @@
         "numeroVenta": 3526,
         "cantidadSolicitada": "1",
         "fecha": "20-05-2024 20:07:25",
-        "talla": "s"
+        "talla": "s",
+        "precio": "5"
     },
     {
         "id": 6,
@@ -57,7 +62,8 @@
         "numeroVenta": 2605,
         "cantidadSolicitada": "1",
         "fecha": "20-05-2024 20:07:26",
-        "talla": "s"
+        "talla": "s",
+        "precio": "5"
     },
     {
         "id": 7,
@@ -67,7 +73,8 @@
         "numeroVenta": 2045,
         "cantidadSolicitada": "1",
         "fecha": "20-05-2024 23:03:03",
-        "talla": "s"
+        "talla": "s",
+        "precio": "5"
     },
     {
         "id": 8,
@@ -77,7 +84,8 @@
         "numeroVenta": 3057,
         "cantidadSolicitada": "1",
         "fecha": "04-07-2024 21:59:07",
-        "talla": "k"
+        "talla": "k",
+        "precio": "10"
     },
     {
         "id": 9,
@@ -87,6 +95,18 @@
         "numeroVenta": 2546,
         "cantidadSolicitada": "1",
         "fecha": "04-07-2024 21:59:08",
-        "talla": "P"
+        "talla": "P",
+        "precio": "20"
+    },
+    {
+        "id": 10,
+        "email": "comprador@gmail.com",
+        "nombre": "mom",
+        "tipo": "pantalon",
+        "numeroVenta": 4334,
+        "cantidadSolicitada": "15",
+        "fecha": "05-07-2024 21:39:12",
+        "talla": "m",
+        "precio": "20"
     }
 ]
