@@ -11,7 +11,11 @@ class Tienda
     public $talla;
     public $precio;
     public $stock;
-
+    public $nombreCamisa;
+    public $nombrePantalon;
+    public $tallaCamisa;
+    public $tallaPantalon;
+    public $precioTotal;
 
     public function setTalla($talla)
     {
@@ -19,6 +23,43 @@ class Tienda
             $this->talla = $talla;
         }
     }
+
+    public function setNombreCamisa($nombreCamisa)
+    {
+        if (isset($nombreCamisa) && is_string($nombreCamisa)) {
+            $this->nombreCamisa = $nombreCamisa;
+        }
+    }
+
+    public function setNombrePantalon($nombrePantalon)
+    {
+        if (isset($nombrePantalon) && is_string($nombrePantalon)) {
+            $this->nombrePantalon = $nombrePantalon;
+        }
+    }
+
+    public function setTallaCamisa($tallaCamisa)
+    {
+        if (isset($tallaCamisa) && is_string($tallaCamisa)) {
+            $this->tallaCamisa = $tallaCamisa;
+        }
+    }
+
+    public function settallaPantalon($tallaPantalon)
+    {
+        if (isset($tallaPantalon) && is_string($tallaPantalon)) {
+            $this->tallaPantalon = $tallaPantalon;
+        }
+    }
+
+    public function setPrecioTotal($precioTotal)
+    {
+        if (isset($precioTotal) && is_numeric($precioTotal)) {
+            $this->precioTotal = floatval($precioTotal);
+        }
+    }
+
+
 
     public function setId($id)
     {
@@ -67,7 +108,6 @@ class Tienda
     }
 
 
-    //Dará de alta un nuevo helada cuando sea invocada
     public static function TiendaAlta($nombre, $tipo, $precio, $stock, $talla, $color)
     {
         $listaPrendas = Tienda::ObtenerContenidoDelArchivo();
@@ -94,20 +134,62 @@ class Tienda
         }
     }
 
+    public static function ConjuntoAlta($nombreCamisa, $tipoCamisa, $nombrePantalon, $tipoPantalon)
+    {
+        $listaPrendas = Tienda::ObtenerContenidoDelArchivo();
+
+        foreach ($listaPrendas as $camisa) {
+            if ($camisa["nombre"] == $nombreCamisa && $camisa["tipo"] == $tipoCamisa) {
+                foreach ($listaPrendas as $pantalon) {
+                    if ($pantalon["nombre"] == $nombrePantalon && $pantalon["tipo"] == $tipoPantalon) {
+                        $tienda = new Tienda();
+                        $tienda->setId(count($listaPrendas) + 1);
+                        $tienda->setNombreCamisa($nombreCamisa);
+                        $tienda->setNombrePantalon($nombrePantalon);
+                        $tienda->setTipo('Conjunto');
+                        $tienda->setPrecioTotal($camisa["precio"] + $pantalon["precio"]);
+                        $tienda->setTallaCamisa($camisa["talla"]);
+                        $tienda->settallaPantalon($pantalon["talla"]);
+                        $tienda->setNombre("$nombreCamisa y $nombrePantalon");
+
+                        array_push($listaPrendas, $tienda);
+                        echo "Nuevo conjunto dado de alta\n";
+                        break;
+                    }
+                }
+                break;
+            }
+        }
+
+        return $listaPrendas;
+    }
+
+    // public static function GuardarJson($lista, $nombreArchivo = "tienda.json")
+    // {
+    //     $contenido = json_encode($lista, JSON_PRETTY_PRINT);
+    //     if (!empty($contenido)) {
+    //         $data = file_put_contents($nombreArchivo, $contenido);
+    //         if ($data != false) {
+    //             return true;
+    //         } else {
+    //             return false;
+    //         }
+    //     } else {
+    //         echo "El archivo no se pudo guardar\n";
+    //         return false;
+    //     }
+    // }
+
     public static function GuardarJson($lista, $nombreArchivo = "tienda.json")
     {
-        $contenido = json_encode($lista, JSON_PRETTY_PRINT);
-        if (!empty($contenido)) {
-            $data = file_put_contents($nombreArchivo, $contenido);
-            if ($data != false) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            echo "El archivo no se pudo guardar\n";
-            return false;
-        }
+        // Preparar y filtrar las prendas válidas
+        $preparadas = array_map(fn ($prenda) => array_filter((array) $prenda), $lista);
+
+        // Convertir a JSON y guardar en el archivo
+        $jsonContenido = json_encode($preparadas, JSON_PRETTY_PRINT);
+
+        // Guardar en el archivo y retornar el resultado
+        return file_put_contents($nombreArchivo, $jsonContenido) ? true : false;
     }
 
 
@@ -171,6 +253,21 @@ class Tienda
 
             //Si la carpeta no está creada, la crea
             //Si ya existe, saltea el if
+            if (!is_dir($nombreCarpeta)) {
+                mkdir($nombreCarpeta, 0777);
+            }
+
+            return move_uploaded_file($ubicacionTemp, $destino) ? true : false;
+        } else {
+            return false;
+        }
+    }
+    public static function GuardarImagenCargadaConjunto($ubicacionTemp, $nombreCamisa, $nombrePantalon)
+    {
+        if (isset($ubicacionTemp)) {
+            $nombreCarpeta = "ImagenesDeConjuntos2024/";
+            $destino =  $nombreCarpeta . $nombreCamisa . $nombrePantalon . ".jpg";
+
             if (!is_dir($nombreCarpeta)) {
                 mkdir($nombreCarpeta, 0777);
             }

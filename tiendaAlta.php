@@ -21,6 +21,18 @@ if (
 
     $ubicacionTemp = $_FILES["file"]["tmp_name"];
     echo Tienda::GuardarImagenCargada($ubicacionTemp, $nombre, $tipo) ? "Se guardó la imagen enviada\n" : "No se pudo guardar la imagen enviada\n";
+} else if (
+    isset($_POST["nombrecamisa"]) && isset($_POST["tipocamisa"]) && isset($_POST["nombrepantalon"]) && isset($_POST["tipopantalon"])
+) {
+    $listaConjuntos = Tienda::ConjuntoAlta($_POST["nombrecamisa"], $_POST["tipocamisa"], $_POST["nombrepantalon"], $_POST["tipopantalon"]);
+
+    if (!empty($listaConjuntos)) {
+        echo Tienda::GuardarJson($listaConjuntos) ? "Se guardó el conjunto en un archivo\n" : "Error al guardar el conjunto en el archivo\n";
+        $ubicacionTemp = $_FILES["file"]["tmp_name"];
+        echo Tienda::GuardarImagenCargadaConjunto($ubicacionTemp, $_POST["nombrecamisa"], $_POST["nombrepantalon"]) ? "Se guardó la imagen enviada\n" : "No se pudo guardar la imagen enviada\n";
+    } else {
+        echo "Lista de prendas vacía al intentar dar de alta un conjunto\n";
+    }
 } else {
     echo "Faltan datos";
 }

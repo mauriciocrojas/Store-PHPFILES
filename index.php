@@ -17,6 +17,9 @@ switch ($metodo) {
             case "venta":
                 include "altaVenta.php";
                 break;
+            case "altaConjunto":
+                include "tiendaAlta.php";
+                break;
             default:
                 echo "Acción por POST inválida\n";
                 break;

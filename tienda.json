@@ -43,5 +43,34 @@
         "talla": "m",
         "precio": 12,
         "stock": 53
+    },
+    {
+        "id": 6,
+        "nombre": "chomba y jeanAzul",
+        "tipo": "Conjunto",
+        "nombreCamisa": "chomba",
+        "nombrePantalon": "jeanAzul",
+        "tallaCamisa": "s",
+        "tallaPantalon": "s",
+        "precioTotal": 310
+    },
+    {
+        "id": 7,
+        "nombre": "momoronono",
+        "tipo": "pantalon",
+        "color": "negro",
+        "talla": "m",
+        "precio": 12,
+        "stock": 25
+    },
+    {
+        "id": 8,
+        "nombre": "chomba y jeanAzul",
+        "tipo": "Conjunto",
+        "nombreCamisa": "chomba",
+        "nombrePantalon": "jeanAzul",
+        "tallaCamisa": "s",
+        "tallaPantalon": "s",
+        "precioTotal": 310
     }
 ]
