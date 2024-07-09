@@ -11,6 +11,10 @@ class Venta
     public $id;
     public $email;
     public $nombre;
+    public $nombrePantalon;
+    public $nombreCamisa;
+    public $tallaPantalon;
+    public $tallaCamisa;
     public $tipo;
     public $numeroVenta;
     public $cantidadSolicitada;
@@ -23,6 +27,34 @@ class Venta
     {
         if (isset($email) && is_string($email)) {
             $this->email = $email;
+        }
+    }
+
+    public function SetTallaCamisa($tallaCamisa)
+    {
+        if (isset($tallaCamisa) && is_string($tallaCamisa)) {
+            $this->tallaCamisa = $tallaCamisa;
+        }
+    }
+
+    public function SetTallaPantalon($tallaPantalon)
+    {
+        if (isset($tallaPantalon) && is_string($tallaPantalon)) {
+            $this->tallaPantalon = $tallaPantalon;
+        }
+    }
+
+    public function SetNombrePantalon($nombrePantalon)
+    {
+        if (isset($nombrePantalon) && is_string($nombrePantalon)) {
+            $this->nombrePantalon = $nombrePantalon;
+        }
+    }
+
+    public function SetNombreCamisa($nombreCamisa)
+    {
+        if (isset($nombreCamisa) && is_string($nombreCamisa)) {
+            $this->nombreCamisa = $nombreCamisa;
         }
     }
     public function SetNombre($nombre)
@@ -129,6 +161,92 @@ class Venta
 
         return $bool;
     }
+
+
+    public static function AltaUsuarioConjuntoVenta($email, $nombrepantalon, $nombrecamisa, $tipo, $cantidadSolicitada, $tallapantalon, $tallacamisa, $precio)
+    {
+        $listaVentas = Tienda::ObtenerContenidoDelArchivo("ventas.json");
+
+        $venta = new Venta();
+        $venta->SetEmail($email);
+        $venta->SetNombreCamisa($nombrecamisa);
+        $venta->SetNombrePantalon($nombrepantalon);
+        $venta->SetTipo($tipo);
+        $venta->SetTallaCamisa($tallacamisa);
+        $venta->SetTallaPantalon($tallapantalon);
+        $venta->SetPrecio($precio);
+        $venta->SetCantidadSolicitada($cantidadSolicitada);
+        $venta->SetId(count($listaVentas) + 1);
+        $venta->SetNumeroVenta(rand(1000, 5000));
+        $venta->SetEliminado('N');
+        $venta->fecha = date("d-m-Y H:i:s");
+
+        array_push($listaVentas, $venta);
+
+        return $listaVentas;
+    }
+
+
+
+
+    public static function BuscarConjuntoParaUsuario($nombrepantalon, $nombrecamisa, $tipo, $tallapantalon, $tallacamisa, $cantidadSolicitada)
+    {
+        $listaPrendas = Tienda::ObtenerContenidoDelArchivo();
+        $cadena = '';
+        $bool = false;
+        $stockDisponible = true;
+
+        foreach ($listaPrendas as $prenda) {
+            if (
+                $prenda["nombreCamisa"] == $nombrecamisa && $prenda["nombrePantalon"] == $nombrepantalon && $prenda["tipo"] == $tipo && $prenda["tallaCamisa"] == $tallacamisa && $prenda["tallaPantalon"] == $tallapantalon
+            ) {
+                foreach ($listaPrendas as $p) {
+                    if ($p["nombre"] == $nombrecamisa && $p["talla"] == $tallacamisa) {
+                        if ($p["stock"] < $cantidadSolicitada) {
+                            $stockDisponible = false;
+                            $cadena .= "No hay suficiente stock de camisa\n";
+                            break;
+                        }
+                    }
+                    if ($p["nombre"] == $nombrepantalon && $p["talla"] == $tallapantalon) {
+                        if ($p["stock"] < $cantidadSolicitada) {
+                            $stockDisponible = false;
+                            $cadena .= "No hay suficiente stock de pantalón\n";
+                            break;
+                        }
+                    }
+                }
+
+                if ($stockDisponible) {
+                    foreach ($listaPrendas as &$p) {
+                        if ($p["nombre"] == $nombrecamisa && $p["talla"] == $tallacamisa) {
+                            $p["stock"] -= $cantidadSolicitada;
+                            $cadena .= "El nuevo stock de camisa es de: " .  $p["stock"] . "\n";
+                        }
+                        if ($p["nombre"] == $nombrepantalon && $p["talla"] == $tallapantalon) {
+                            $p["stock"] -= $cantidadSolicitada;
+                            $cadena .= "El nuevo stock de pantalón es de: " .  $p["stock"] . "\n";
+                        }
+                    }
+                    Tienda::guardarJson($listaPrendas);
+                    $cadena .= "Hay stock, se realiza la venta\n";
+                    $bool = true;
+                    break;
+                } else {
+                    $bool = false;
+                    $cadena .= "No hay suficiente stock para la venta\n";
+                    break;
+                }
+            } else {
+                $bool = false;
+            }
+        }
+
+        echo $cadena;
+        return $bool;
+    }
+
+
 
     public static function GuardarImagenCargada($ubicacionTemp, $nombre, $tipo, $talla, $email)
     {
